@@ -14,14 +14,15 @@ client.on('message', msg => {
 client.on('guildMemberAdd', member => {
 
 	const channel = member.guild.channels.cache.find(channel => channel.name === "general")
-	if (!channel) return;
+	if (!channel)
+		return;
 
-	const joinembed = new Discord.MessageEmbed()
-	.setTitle(`A new member just arrived!`)
-	.setDescription(`Welcome ${member} we hope you enjoy your stay here!`)
+	const joinMsg = new Discord.MessageEmbed()
+	.setTitle(`A new member has arrived!`)
+	.setDescription(`Welcome ${member}`)
 	.setColor("#FF0000");
 
-	channel.send(joinembed);
+	channel.send(joinMsg);
 });
 
 client.login(process.env.token);
